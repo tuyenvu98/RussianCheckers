@@ -97,7 +97,6 @@ Window {
                     board.setEvaluateNum(100)
                 else
                     board.setEvaluateNum(1000)
-                board.init()
                 board.setUp(cbSide.currentIndex,cbOpponent.currentIndex)
                 close()
             }
