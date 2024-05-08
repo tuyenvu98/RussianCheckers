@@ -44,7 +44,7 @@ Window {
             anchors.leftMargin: 80
             anchors.topMargin: 20
             font.bold:true
-            text: "\u{1F3A8} 1"
+            text: platform =="Android" ? "\u{1F3A8} 1":"Color 1"
             font.pixelSize: 20
         }
         Label{
@@ -54,7 +54,7 @@ Window {
             anchors.leftMargin: 20
             anchors.topMargin: 20
             font.bold:true
-            text: "\u{1F3A8} 2"
+            text: platform =="Android" ? "\u{1F3A8} 2":"Color 2"
             font.pixelSize: 20
         }
         Label{
@@ -118,9 +118,10 @@ Window {
 
         Button {
             id: btnOK
-            text: "OK"
+            text: "\u{2714}"
             width: 80
             height: 50
+            font.pixelSize: 40
             font.bold: true
             anchors.rightMargin: 10
             anchors.right: btnCancel.left
@@ -136,10 +137,10 @@ Window {
 
         Button {
             id: btnCancel
-            text: "Cancel"
+            text: "\u{2716}"
             width: 120
             height: 50
-            font.bold: true
+            font.pixelSize: 35
             anchors.rightMargin: 20
             anchors.bottomMargin: 20
             anchors.right: parent.right

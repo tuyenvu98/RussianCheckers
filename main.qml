@@ -6,11 +6,11 @@ Window {
     id:mainwindow
     visible: true
     width: platform =="Android" ?Screen.width:600
-    height: platform =="Android" ?Screen.width:800
+    height: platform =="Android" ?Screen.height:800
     title: qsTr("Chess")
-    property int cellSize: (width-40)/8
-    property string color1: "wheat"
-    property string color2: "saddlebrown"
+    property int cellSize: width <height ? (width-40)/10:(height-40)/10
+    property string color1: "saddlebrown"
+    property string color2: "blanchedalmond"
     property string bgColor1: "darkseagreen"
     property string bgColor2: "cadetblue"
     Connections {
@@ -28,11 +28,22 @@ Window {
                         break;
                     case 1:
                         cell.visible = true
-                        cell.setText( "\u{26AB}")
+                        if(platform =="Android")
+                            cell.setText( "\u{26AB}")
+                        else
+                        {
+                            cell.color="black"
+                        }
                         break
                     case 2:
                         cell.visible = true
-                        cell.setText( "\u{26AA}")
+                        if(platform =="Android")
+                            cell.setText( "\u{26AA}")
+                        else
+                        {
+                            cell.color="whitesmoke"
+                            cell.border.color="silver"
+                        }
                         break
                     case 3:
                         cell.visible = true
@@ -142,8 +153,8 @@ Window {
 
         Button {
             id:btnStart
-            text: "\u{1F680}"
-            width: 80
+            text: "\u{261D}"
+            width: 60
             height: 60
             font.bold: true
             font.pixelSize: 30

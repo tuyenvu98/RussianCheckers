@@ -15,5 +15,12 @@ Window {
             text: "\u{1F389} \u{1F37A} \u{1F4AF} "+side+" WON \u{1F4AF} \u{1F37A} \u{1F389}"
             font.pixelSize: 20
         }
+
+        AnimatedImage {
+            source: "qrc:/image/gifs/firework.gif"
+            width: 250
+            height: 100
+            anchors.centerIn: parent
+        }
     }
 }

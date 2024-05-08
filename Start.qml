@@ -18,9 +18,9 @@ Window {
             anchors.left: parent.left
             anchors.top: parent.top
             anchors.leftMargin: 20
-            anchors.topMargin: 20
+            anchors.topMargin: 40
             font.bold:true
-            text: " \u{1F916} Opponent     \u{27A1} "
+            text: " \u{2660} Opponent     \u{27A1} "
             font.pixelSize: 25
         }
 
@@ -44,9 +44,9 @@ Window {
             id: lblSide
             anchors.left: lblOpponent.left
             anchors.top: lblOpponent.bottom
-            anchors.topMargin: 20
+            anchors.topMargin: 40
             font.bold:true
-            text: " \u{1F3AE} You play      \u{27A1}"
+            text: " \u{1F313} You play       \u{27A1}"
             font.pixelSize: 25
         }
 
@@ -55,8 +55,7 @@ Window {
             width: 100
             height: 50
             anchors.verticalCenter: lblSide.verticalCenter
-            anchors.leftMargin: 30
-            anchors.left: lblSide.right
+            anchors.left: cbMode.left
             model: ["Black", "White"]
             currentIndex: 0
         }
@@ -65,9 +64,9 @@ Window {
             id: lblMode
             anchors.left: lblSide.left
             anchors.top: lblSide.bottom
-            anchors.topMargin: 20
+            anchors.topMargin: 40
             font.bold:true
-            text: " \u{26A1} Mode           \u{27A1}"
+            text: " \u{26A1} Mode            \u{27A1}"
             font.pixelSize: 25
         }
 
@@ -85,9 +84,10 @@ Window {
 
         Button {
             id: btnOK
-            text: "OK"
+            text: "\u{2714}"
             width: 80
             height: 50
+            font.pixelSize: 40
             font.bold: true
             anchors.rightMargin: 10
             anchors.right: btnCancel.left
@@ -97,6 +97,7 @@ Window {
                     board.setEvaluateNum(100)
                 else
                     board.setEvaluateNum(1000)
+                board.init()
                 board.setUp(cbSide.currentIndex,cbOpponent.currentIndex)
                 close()
             }
@@ -104,10 +105,10 @@ Window {
 
         Button {
             id: btnCancel
-            text: "Cancel"
+            text: "\u{2716}"
             width: 120
             height: 50
-            font.bold: true
+            font.pixelSize: 35
             anchors.rightMargin: 20
             anchors.bottomMargin: 20
             anchors.right: parent.right
