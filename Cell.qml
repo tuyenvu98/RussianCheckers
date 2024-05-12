@@ -10,7 +10,7 @@ Rectangle {
     property var curY:0
     Text {
         id: txtCell
-        font.pixelSize: platform =="Android" ? 30:Screen.height/15
+        font.pixelSize: Screen.width <Screen.height ? Screen.width/15:Screen.height/15
         anchors.centerIn: parent
     }
     function setText(text)

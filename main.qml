@@ -9,8 +9,8 @@ Window {
     height: platform =="Android" ?Screen.height:800
     title: qsTr("Chess")
     property int cellSize: width <height ? (width-40)/10:(height-40)/10
-    property string color1: "saddlebrown"
-    property string color2: "blanchedalmond"
+    property string color1: "blanchedalmond"
+    property string color2: "saddlebrown"
     property string bgColor1: "darkseagreen"
     property string bgColor2: "cadetblue"
     Connections {
@@ -33,6 +33,7 @@ Window {
                         else
                         {
                             cell.color="black"
+                            cell.border.color="silver"
                         }
                         break
                     case 2:
@@ -48,10 +49,14 @@ Window {
                     case 3:
                         cell.visible = true
                         cell.setText( "\u{265B}")
+                        cell.color="transparent"
+                        cell.border.color=color2
                         break
                     case 4:
                         cell.visible = true
                         cell.setText( "\u{2655}")
+                        cell.color="white"
+                        cell.border.color=color2
                         break
                     default:
                         cell.visible = false;
@@ -150,6 +155,21 @@ Window {
             }
         }
 
+        Button {
+            id:btnHelp
+            text: "\u{2139}"
+            width: 50
+            height: 50
+            font.bold: true
+            font.pixelSize: 30
+            onClicked: {
+                Qt.openUrlExternally("https://youtu.be/MOW9k_C4vFU?si=YafikoRcySlblpdt")
+            }
+            anchors.right: parent.right
+            anchors.rightMargin: 20
+            anchors.top: parent.top
+            anchors.topMargin: 10
+        }
 
         Button {
             id:btnStart
@@ -176,8 +196,7 @@ Window {
             text: "\u{2699}"
             width: 60
             height: 60
-            anchors.right: parent.right
-            anchors.rightMargin: 20
+            anchors.right: btnHelp.right
             anchors.bottom: btnStart.bottom
             font.pixelSize: 30
             onClicked: {

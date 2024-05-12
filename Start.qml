@@ -105,7 +105,7 @@ Window {
         Button {
             id: btnCancel
             text: "\u{2716}"
-            width: 120
+            width: 80
             height: 50
             font.pixelSize: 35
             anchors.rightMargin: 20
